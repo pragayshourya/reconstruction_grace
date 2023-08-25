@@ -11,6 +11,3 @@ Whether you're an experienced deep learning practitioner or new to the field, ou
 
 Contributions:
 We welcome contributions from the global scientific and deep learning communities. If you've developed a novel architecture, have ideas for improving existing models, or want to share your insights on TWS reconstruction, feel free to submit pull requests or open discussions.
-
-License:
-This repository operates under the [Apache License 2.0](link-to-license-file), allowing you to utilize, modify, and distribute the deep learning models and associated code while maintaining proper attribution.
