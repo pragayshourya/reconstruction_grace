@@ -10,7 +10,7 @@ The primary objective of this repository is to harness the capabilities of deep 
 Whether you're an experienced deep learning practitioner or new to the field, our repository provides a smooth onboarding experience. You can clone the repository, access example notebooks, and begin experimenting with different models right away. Our documentation walks you through the process, from data preprocessing to model evaluation.
 
 ## Contributions:
-We welcome contributions from the global scientific and deep learning communities. If you've developed a novel architecture, have ideas for improving existing models, or want to share your insights on TWS reconstruction, feel free to submit pull requests or open discussions.
+We welcome contributions from any interested parties and are in the process of outlining how to incorporate outside contributions best. For the time being, if you would like to contribute to the development of the model, please contact Pragay Shourya Moudgil (pragay.shourya@gmail.com).
 
 ## Credits:
 If using code for scientific applications, please cite the following: 
