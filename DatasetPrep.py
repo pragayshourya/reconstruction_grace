@@ -10,36 +10,34 @@ import multiprocessing as mp
 
 
 # Loading datasets from different satellites using netcdf:
-grace_jpl = xr.open_dataset('./data/grace_jpl_05.nc')
-grace_jpl_df = grace_jpl.to_dataframe().reset_index()
+grace_jpl = xr.open_dataset('./data/reproj/grace_jpl_05.nc')
+grace_jpl_df = grace_jpl.to_dataframe().dropna().reset_index()
 grace_jpl_index = grace_jpl_df[['lat', 'lon']].drop_duplicates().values
 
 # GRACE mascons solutions from different datasets:
-grace_jpl = xr.open_dataset('../GRACE/grace_jpl_05.nc')
-grace_csr = xr.open_dataset('../GRACE/grace_csr_05.nc').sel(time = slice(None, '2022-08-01'))
-grace_gsfz = xr.open_dataset('../GRACE/grace_gsfz_05.nc')
+grace_jpl = xr.open_dataset('./data/reproj/grace_jpl_05.nc')
+grace_csr = xr.open_dataset('./data/reproj/grace_csr_05.nc').sel(time = slice(None, '2022-08-01'))
+grace_gsfz = xr.open_dataset('./data/reproj/grace_gsfz_05.nc')
 #Other variables import:
-gldas_noah = xr.open_dataset('../GLDAS/GLDAS_COMBINED_clipped_india_grace_gridded.nc')                              # GLDAS 
-era_temp = xr.open_dataset('../ERA/Temperature_ERA_clipped_india_grace_gridded.nc')                                 # Temperature
-modis_ndvi = xr.open_dataset('../MODIS/MODIS_NDVI_05.nc')                                                           # MODIS NDVI
-chirps_rain = xr.open_dataset('../CHIRPS/chirps_05.nc')
-
+gldas_noah = xr.open_dataset('./data/reproj/gldas_05.nc')                         # GLDAS 
+era_temp = xr.open_dataset('./data/reproj/Temperature_era_05.nc')                 # Temperature
+modis_ndvi = xr.open_dataset('./data/reproj/MODIS_NDVI_05.nc')                    # MODIS NDVI
+chirps_rain = xr.open_dataset('./data/reproj/chirps_05.nc')                       # CHIRPS Rainfall
 #Compilation of datasets:
 def anomalies(variable):
     return variable-np.mean(np.abs((variable.sel(time=slice("2004-01-01", "2009-12-01")).values)))
 
 def data_prep(i):
-    time_section = slice("2001-01-01", "2022-08-01")
+    time_section = slice("2001-01-01", "2022-07-01")
     #GRACE:
     lwe_jpl = grace_jpl['lwe_thickness'].sel(lat=i[0], lon=i[1] ,time=time_section).resample(time="1MS").mean() #JPL solutions
     lwe_csr = grace_csr['lwe_thickness'].sel(lat=i[0], lon=i[1] ,time=time_section).resample(time="1MS").mean() #CSR solutions
     lwe_gsfz = grace_gsfz['lwe_thickness'].sel(lat=i[0], lon=i[1] ,time=time_section).resample(time="1MS").mean() # gsfz solutions
     average = (lwe_jpl+lwe_csr+lwe_gsfz)/3
     #Other variables:
-    ndvi = anomalies((modis_ndvi['NDVI'].sel(lat=i[0], lon=i[1] ,time=time_section).resample(time="1MS").mean())*0.0001) #NDVI
-    temp = anomalies(era_temp['skt'].sel(lat=i[0], lon=i[1] ,time=time_section).resample(time="1MS").mean()) #Skin temperature
+    ndvi = anomalies((modis_ndvi['NDVI'].sel(lat=i[0], lon=i[1] ,time=time_section).resample(time="1MS").mean())*0.0001) #NDVI Please note that 0.0001 is the scaling factor provided in Google earth engine.
+    temp = anomalies(era_temp['skt'].sel(lat=i[0], lon=i[1] ,time=time_section).sel(expver = 1).resample(time="1MS").mean()) #Skin temperature
     precp = anomalies(chirps_rain['precip'].sel(lat=i[0], lon=i[1] ,time=time_section).resample(time="1MS").mean()) #Rainfall
-
     #GLDAS variables:
     et = anomalies(gldas_noah['Evap_tavg'].sel(lat=i[0], lon=i[1] ,time=time_section).resample(time="1MS").mean()) #Evapotranspiration
     cws = anomalies(gldas_noah['CanopInt_inst'].sel(lat=i[0], lon=i[1] ,time=time_section).resample(time="1MS").mean()) #Plant canopy 
@@ -74,9 +72,14 @@ def data_prep(i):
                                index=temp['time'])
     tem_o.index.name = 'Date'
     tem_grace = pd.DataFrame(average.values, columns=['GRACE'], index = lwe_csr['time'])
+    
     tem_grace.index.name = 'Date'
     df = tem_o.merge(tem_grace, how='left', left_index=True, right_index=True)
-    df.to_csv('../COMPILED/{}_{}.csv'.format(i[0], i[1]))
+    df.to_csv('./data/COMPILED/{}_{}.csv'.format(i[0], i[1]))
+
+if __name__ == '__main__':
+    pool = mp.Pool()
+    pool.map(data_prep, grace_jpl_index)
 
 if __name__ == '__main__':
     pool = mp.Pool()
