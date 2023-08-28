@@ -46,7 +46,7 @@ def training_cnn_lstm(file):
     config.gpu_options.allow_growth=True
     sess = tf.compat.v1.Session(config=config)
     tf.compat.v1.keras.backend.set_session(sess)
-    look_back = 4
+    look_back = 3
 
     df = pd.read_csv(file)
     df.set_index('Date', inplace = True, drop = True)
@@ -72,7 +72,7 @@ def training_cnn_lstm(file):
             overwrite = True,
             directory = './Models',
             project_name='{}'.format(file.split('/')[-1][:-4]))
-    tuner.search(X_train, y_train, epochs=1,
+    tuner.search(X_train, y_train, epochs=500,
                 validation_data=(X_val, y_val),
                 use_multiprocessing = False,
                 workers=-1, verbose = 1,
