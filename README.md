@@ -7,6 +7,7 @@ Welcome to the GRACE-TWS Reconstruction with Deep Learning repository, a dedicat
 The primary objective of this repository is to harness the capabilities of deep learning to reconstruct GRACE (Gravity Recovery and Climate Experiment) Terrestrial Water Storage data. GRACE satellites provide critical insights into Earth's water distribution, but their raw data can be noisy and challenging to interpret. Through the utilization of advanced deep learning models, we aim to enhance the accuracy and resolution of TWS estimates derived from GRACE observations.
 
 ## Getting Started:
+There are two methods to utilize this library. The first approach involves cloning this repository directly, while the second method entails pulling the Docker image. Opting for the Docker option is recommended due to its user-friendly nature. A Docker file will soon be included and maintained within this repository, streamlining the process further.
 
 1. **Clipping and Reprojection of Input Datasets**: The initial step involves manipulating the input datasets to fit the desired resolution. This can include tasks such as cropping and reprojecting input dataset to match desired resolution. This step is crucial to ensure consistency and compatibility among different input and output datasets.
 
