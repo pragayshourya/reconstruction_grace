@@ -9,6 +9,11 @@ The primary objective of this repository is to harness the capabilities of deep 
 ## Getting Started:
 There are two methods to utilize this library. The first approach involves cloning this repository directly, while the second method entails pulling the Docker image. Opting for the Docker option is recommended due to its user-friendly nature. A Docker file will soon be included and maintained within this repository, streamlining the process further.
 
+Docker File Usage:
+To acquire the Docker image, employ `docker pull pragayshourya/reconstructed_grace:latest`.
+
+The Docker file encompasses scripts and datasets integral to the GRACE-like Total Water Storage (TWS) reconstruction in the Indian subcontinent. By default, the scripts check the presence of gridwise time series in the "TIME SERIES" folder, skipping training if present. To reconstruct TWS for a specific study region, employ "dataset_prep.py" to prepare datasets for individual grids. It's vital to update dataset names and addresses in the script. Also, adjust the time frame, incorporating adequate previous time steps for accommodating lag values in the initial observation. Post data preparation, directly use "main.py".
+
 1. **Clipping and Reprojection of Input Datasets**: The initial step involves manipulating the input datasets to fit the desired resolution. This can include tasks such as cropping and reprojecting input dataset to match desired resolution. This step is crucial to ensure consistency and compatibility among different input and output datasets.
 
 2. **Conversion to Gridwise Input Files**: After the reprojection process, the modified datasets need to be converted into a format that suits further processing. This often involves organizing the data into a grid-wise dataset, which can be directly used to develop deep learning model.
