@@ -124,5 +124,6 @@ if __name__ == '__main__':
     os.system('clear')
     pool = mp.Pool(mp.cpu_count())
     files = glob(os.path.join('./data/COMPILED/*.csv'))
-    pool.map(training_cnn_lstm, files[:1])
+    pool.map(training_cnn_lstm, files)
+    pool.close()
     os.system('clear')
