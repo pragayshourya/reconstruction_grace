@@ -1,18 +1,13 @@
-# GRACE-TWS Reconstruction with Deep Learning
+# GRACE-TWS Reconstruction with Deep Learning (Work Under Progress)
 
 ## Description:
 Welcome to the GRACE-TWS Reconstruction with Deep Learning repository, a dedicated hub for leveraging the power of deep learning models to reconstruct Terrestrial Water Storage (TWS) data from remote sensing datasets. Our repository aims to provide researchers, scientists, and enthusiasts in the field of hydrology and Earth observation with cutting-edge tools and methodologies for accurately estimating TWS using state-of-the-art deep learning techniques.
 
 ## Key Objectives:
-The primary objective of this repository is to harness the capabilities of deep learning to reconstruct GRACE (Gravity Recovery and Climate Experiment) Terrestrial Water Storage data. GRACE satellites provide critical insights into Earth's water distribution, but their raw data can be noisy and challenging to interpret. Through the utilization of advanced deep learning models, we aim to enhance the accuracy and resolution of TWS estimates derived from GRACE observations.
+The primary objective of this repository is to harness the capabilities of deep learning to reconstruct GRACE (Gravity Recovery and Climate Experiment) Terrestrial Water Storage data. GRACE satellites provide critical insights into Earth's water distribution, but their raw data can be noisy and challenging to interpret. By utilising advanced deep learning models, we aim to enhance the accuracy and resolution of TWS estimates derived from GRACE observations.
 
 ## Getting Started:
 There are two methods to utilize this library. The first approach involves cloning this repository directly, while the second method entails pulling the Docker image. Opting for the Docker option is recommended due to its user-friendly nature. A Docker file will soon be included and maintained within this repository, streamlining the process further.
-
-Docker File Usage:
-To acquire the Docker image, employ `docker pull pragayshourya/reconstructed_grace:latest`.
-
-The Docker file encompasses scripts and datasets integral to the GRACE-like Total Water Storage (TWS) reconstruction in the Indian subcontinent. By default, the scripts check the presence of gridwise time series in the "TIME SERIES" folder, skipping training if present. To reconstruct TWS for a specific study region, employ "dataset_prep.py" to prepare datasets for individual grids. It's vital to update dataset names and addresses in the script. Also, adjust the time frame, incorporating adequate previous time steps for accommodating lag values in the initial observation. Post data preparation, directly use "main.py".
 
 Different steps to follow for data preparation and model training:
 
