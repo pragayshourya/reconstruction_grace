@@ -31,7 +31,7 @@ If using the repository for scientific applications, please cite the following:
 1. Moudgil, P. S. and Rao, G. S.: Filling Temporal Gaps within and between GRACE and GRACE-FO Terrestrial Water Storage Changes over Indian Sub-Continent using Deep Learning., EGU General Assembly 2023, Vienna, Austria, 24–28 Apr 2023, EGU23-8218, https://doi.org/10.5194/egusphere-egu23-8218, 2023.
 2. Moudgil, P. S., Rao, G.S, Heki, K. (2023). Bridging the Temporal Gaps in GRACE/GRACE-FO Terrestrial Water Storage Anomalies over the Major Indian River Basins using Deep Learning (Under Review).
 
-## Datasets:
+## Datasets and output:
 The processed input datasets can be assessed through the following link: https://www.dropbox.com/scl/fo/nrhbtaqfdn6utkk8psid2/h?rlkey=g0bpowowndyk760v7xj2ehyq8&dl=0
 
 The links to download the original datasets (Please note that datasets are updated regularly. Dates when datasets were assessed are provided in the bracket):
