@@ -15,7 +15,7 @@ Different steps to follow for data preparation and model training:
 
 2. **Conversion to Gridwise Input Files**: After the reprojection process, the modified datasets need to be converted into a format that suits further processing. This often involves organizing the data into a grid-wise dataset, which can be directly used to develop a deep learning model.
 
-3. **Updating 'look_back' Parameter and HPC Submission**: Within the 'main.py' script, there is a parameter called 'look_back.' This parameter likely influences the length of historical data used for making predictions or decisions. Before submitting the script to a High-Performance Computing (HPC) cluster, this 'look_back' parameter needs to be appropriately adjusted to tailor the analysis to the specific requirements. HPC clusters are powerful computing environments capable of handling complex tasks through parallel processing, which can significantly speed up computations.
+3. **Updating 'look_back' Parameter and HPC Submission**: Within the 'main.py' script, there is a parameter called 'look_back.' This parameter likely influences the length of historical data used for making predictions or decisions. Before submitting the script to a High-Performance Computing (HPC) cluster, this 'look_back' parameter must be appropriately adjusted to tailor the analysis to the specific requirements. HPC clusters are powerful computing environments capable of handling complex tasks through parallel processing, which can significantly speed up computations.
 
 4. **Random Search for Hyperparameters**: Hyperparameters are values that influence the behaviour and performance of Machine learning/Deep learning models. The script automates the process of hyperparameter tuning by employing the Random Search method. This technique involves systematically trying out various combinations of hyperparameter values to find those that yield the best model performance.
 
@@ -33,6 +33,18 @@ If using the repository for scientific applications, please cite the following:
 
 ## Datasets:
 The processed input datasets can be assessed through the following link: https://www.dropbox.com/scl/fo/nrhbtaqfdn6utkk8psid2/h?rlkey=g0bpowowndyk760v7xj2ehyq8&dl=0
+
+The links to download the original datasets (Please note that datasets are updated regularly. Dates when datasets were assessed are provided in the bracket):
+1. CSR-GRACE-TWS (2022-09-05): https://www2.csr.utexas.edu/grace/RL06_mascons.html
+2. JPL-GRACE-TWS (2022-09-27): https://grace.jpl.nasa.gov/data/get-data/jpl_global_mascons/
+3. GSFZ-GRACE-TWS (2023-01-02): https://earth.gsfc.nasa.gov/geo/data/grace-mascons
+4. CHRIPS Monthly Rainfall V2.0 (2022-09-05): https://data.chc.ucsb.edu/products/CHIRPS-2.0/
+5. GLDAS-NOAH (2023-01-02): https://disc.gsfc.nasa.gov/datasets/GLDAS_NOAH025_M_2.1/summary
+6. ERA5-Temperature (2023-01-02): https://cds.climate.copernicus.eu/cdsapp#!/dataset/reanalysis-era5-single-levels?tab=form
+7. MODIS-NDVI (2022-12-31): https://modis.gsfc.nasa.gov/data/dataprod/mod13.php
+8. GLDAS-CLSM-(From 2000-01-01 to 2003-02-01) (2023-11-26): https://disc.gsfc.nasa.gov/datasets/GLDAS_CLSM025_D_2.0/summary
+9. GLDAS-CLSM-(From 2003-02-01 to 2022-07-01) (2023-11-26): https://disc.gsfc.nasa.gov/datasets/GLDAS_CLSM025_DA1_D_2.2/summary
+
 # References:
 1. F Landerer. 2021. TELLUS_GRAC_L3_CSR_RL06_LND_v04. Ver. RL06 v04. PO.DAAC, CA, USA. Dataset accessed [2022-09-08] at https://doi.org/10.5067/TELND-3AC64.
 2. Landerer F.W. and S. C. Swenson, Accuracy of scaled GRACE terrestrial water storage estimates. Water Resources Research, Vol 48, W04531, 11 PP, doi:10.1029/2011WR011453, 2012.
@@ -44,7 +56,7 @@ The processed input datasets can be assessed through the following link: https:/
 8. Loomis, B.D., Luthcke, S.B. & Sabaka, T.J. (2019) Regularization and error characterization of GRACE mascons. J Geod 93, 1381–1398. https://doi.org/10.1007/s00190-019-01252-y.
 9. Funk, Chris, Pete Peterson, Martin Landsfeld, Diego Pedreros, James Verdin, Shraddhanand Shukla, Gregory Husak, James Rowland, Laura Harrison, Andrew Hoell & Joel Michaelsen. "The climate hazards infrared precipitation with stations-a new environmental record for monitoring extremes". Scientific Data 2, 150066. doi:10.1038/sdata.2015.66 2015.
 10. Rodell, M., P.R. Houser, U. Jambor, J. Gottschalck, K. Mitchell, C.-J. Meng, K. Arsenault, B. Cosgrove, J. Radakovich, M. Bosilovich, J.K. Entin, J.P. Walker, D. Lohmann, and D. Toll, The Global Land Data Assimilation System, Bull. Amer. Meteor. Soc., 85(3), 381-394, 2004.
-11. Hersbach, H., Bell, B., Berrisford, P., Biavati, G., Horányi, A., Muñoz Sabater, J., Nicolas, J., Peubey, C., Radu, R., Rozum, I., Schepers, D., Simmons, A., Soci, C., Dee, D., Thépaut, J-N. (2023): ERA5 hourly data on single levels from 1940 to present. Copernicus Climate Change Service (C3S) Climate Data Store (CDS), DOI: 10.24381/cds.adbb2d47 (Accessed on 02-01-2023).
+11. Hersbach, H., Bell, B., Berrisford, P., Biavati, G., Horányi, A., Muñoz Sabater, J., Nicolas, J., Peubey, C., Radu, R., Rozum, I., Schepers, D., Simmons, A., Soci, C., Dee, D., Thépaut, J-N. (2023): ERA5 hourly data on single levels from 1940 to the present. Copernicus Climate Change Service (C3S) Climate Data Store (CDS), DOI: 10.24381/cds.adbb2d47 (Accessed on 02-01-2023).
 12. Didan, K. (2015). MOD13C2 MODIS/Terra Vegetation Indices Monthly L3 Global 0.05Deg CMG V006 [Data set]. NASA EOSDIS Land Processes Distributed Active Archive Center. Accessed 2022-12-30 from https://doi.org/10.5067/MODIS/MOD13C2.006
 
 
