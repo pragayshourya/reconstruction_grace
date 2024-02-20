@@ -44,6 +44,7 @@ The links to download the original datasets (Please note that datasets are updat
 7. MODIS-NDVI (2022-12-31): https://modis.gsfc.nasa.gov/data/dataprod/mod13.php
 8. GLDAS-CLSM-(From 2000-01-01 to 2003-02-01) (2023-11-26): https://disc.gsfc.nasa.gov/datasets/GLDAS_CLSM025_D_2.0/summary
 9. GLDAS-CLSM-(From 2003-02-01 to 2022-07-01) (2023-11-26): https://disc.gsfc.nasa.gov/datasets/GLDAS_CLSM025_DA1_D_2.2/summary
+10. CGWB Insitu dataset: https://indiawris.gov.in/wris/#/groundWater
 
 # References:
 1. F Landerer. 2021. TELLUS_GRAC_L3_CSR_RL06_LND_v04. Ver. RL06 v04. PO.DAAC, CA, USA. Dataset accessed [2022-09-08] at https://doi.org/10.5067/TELND-3AC64.
